@@ -206,7 +206,11 @@ module Factor
       }
     end
     def calculate_eigenpairs
-      @eigenpairs= @use_gsl ? @matrix.to_gsl.eigenpairs : @matrix.to_matrix.eigenpairs_ruby 
+      require 'awesome_print'
+      ap @matrix.to_matrix#.eigenpairs
+      # ap @use_gsl ? @matrix.to_gsl.eigenpairs : @matrix.to_matrix.eigenpairs_ruby 
+      # puts "klass #{@matrix.to_matrix.eigenpairs} bool #{@use_gsl}"
+      @eigenpairs= @use_gsl ? @matrix.to_gsl.eigenpairs : @matrix.to_matrix.eigenpairs_ruby
     end
   
     
